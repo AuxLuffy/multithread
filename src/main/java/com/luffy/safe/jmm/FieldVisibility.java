@@ -3,6 +3,7 @@ package com.luffy.safe.jmm;
 /**
  * 演示可见性带来的问题
  * 一个线程对某个共享变量的修改并不会第一时间写入到主存中，其他线程读到的共享变量的值很可能不是修改后的值
+ * volatile修饰的变量的禁止重排序不包括读前写后：即volatile变量写操作后的普通变量读写是可能执行在volatile变量写操作前的，或者volatile变量读取前的普通变量读写会执行在volatile变量读取之后
  *
  * @author sunzhangfei
  * @since 2022/8/2 4:42 下午
