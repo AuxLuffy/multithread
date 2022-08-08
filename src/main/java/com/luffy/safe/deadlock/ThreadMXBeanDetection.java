@@ -1,7 +1,5 @@
 package com.luffy.safe.deadlock;
 
-import com.luffy.safe.multierror.DeadLock;
-
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
