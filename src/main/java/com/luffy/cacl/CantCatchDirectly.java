@@ -1,5 +1,8 @@
 package com.luffy.cacl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * desc:
  *
@@ -7,13 +10,15 @@ package com.luffy.cacl;
  * @since 2022/7/29 22:59
  */
 public class CantCatchDirectly implements Runnable {
+    static Logger log = LoggerFactory.getLogger(CantCatchDirectly.class);
+
     public static void main(String[] args) {
         try {
 
             Thread.UncaughtExceptionHandler exceptionHandler = new Thread.UncaughtExceptionHandler() {
                 @Override
                 public void uncaughtException(Thread t, Throwable e) {
-
+                    log.debug("uncaughtException", e);
                 }
             };
             Thread t1 = new Thread(new CantCatchDirectly(), "MyThread-1");
@@ -24,6 +29,7 @@ public class CantCatchDirectly implements Runnable {
             t2.setUncaughtExceptionHandler(exceptionHandler);
             t3.setUncaughtExceptionHandler(exceptionHandler);
             t4.setUncaughtExceptionHandler(exceptionHandler);
+            log.debug("开始");
             t1.start();
             Thread.sleep(300);
             t2.start();

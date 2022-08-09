@@ -3,7 +3,7 @@ package com.luffy.cacl;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * desc:
+ * desc: 演示缓存行对数组操作的速率影响
  *
  * @author luffy
  * @since 2022/7/24 20:48
@@ -14,14 +14,9 @@ public class CacheTest {
 
 
     private static class T {
-        private long p1, p2, p3, p4, p5, p6, p7, p8;
+//        public long p1, p2, p3, p4, p5, p6, p7, p8;
         public long x = 0L;
-        private long p11, p12, p13, p14, p15,p16,p17,p18;
-
-        @Override
-        protected void finalize() throws Throwable {
-            super.finalize();
-        }
+//        public long p11, p12, p13, p14, p15,p16,p17,p18;
     }
 
     public static T[] arr = new T[2];

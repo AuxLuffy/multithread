@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation fileTree(include: ['slf4j-api*.jar', 'log4j-1.2.17.jar'], dir: 'lib')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
