@@ -17,6 +17,7 @@ public class Wait {
                 try {
                     System.out.println("线程" + Thread.currentThread().getName() + "调用了wait()");
                     lock.wait();
+//                    Thread.sleep(10000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -49,6 +50,8 @@ public class Wait {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+//        System.out.println("调用了interrupt");
+//        t1.interrupt();//interrupt也可以释放锁，打断wait状态
         Thread2 t2 = new Thread2();
         t2.start();
     }

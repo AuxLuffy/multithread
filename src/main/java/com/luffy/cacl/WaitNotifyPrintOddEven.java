@@ -24,7 +24,7 @@ public class WaitNotifyPrintOddEven {
                             e.printStackTrace();
                         }
                     } else {
-                        lock.notify();
+                        lock.notify();//这个多余了
                     }
                 }
             }
@@ -35,6 +35,11 @@ public class WaitNotifyPrintOddEven {
         Thread even = new Thread(printRunnable, "偶数线程");
         Thread odd = new Thread(printRunnable, "奇数线程");
         even.start();
+        try {
+            even.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         odd.start();
     }
 }
