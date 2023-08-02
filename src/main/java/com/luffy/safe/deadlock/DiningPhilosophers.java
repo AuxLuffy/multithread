@@ -1,7 +1,7 @@
 package com.luffy.safe.deadlock;
 
 /**
- * desc: 哲学家就餐问题导致的死锁（五个人围一桌吃饭，有五只筷子）
+ * desc: 哲学家就餐问题导致的死锁（五个人围一桌吃饭，有五只筷子，科学家思考一段时间吃饭时必须先拿起左侧筷子再拿到右侧筷子才能吃饭）
  * 解决方案：
  * 1。 服务员检查（避免策略）
  * 2。 改变一个哲学家拿叉子的顺序（避免策略）
@@ -59,7 +59,7 @@ public class DiningPhilosophers {
             Object leftChopstick = chopsticks[i];
             Object rightChopstick = chopsticks[(i + 1) % chopsticks.length];
             if (i == philosophers.length - 1) {
-                philosophers[i] = new Philosopher(rightChopstick, leftChopstick);
+                philosophers[i] = new Philosopher(leftChopstick, rightChopstick);
             } else {
                 philosophers[i] = new Philosopher(leftChopstick, rightChopstick);
             }
